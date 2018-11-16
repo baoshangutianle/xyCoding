@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta content="maximum-dpr=2" name="flexible" />
+    <!-- <script src="http://g.tbcdn.cn/mtb/lib-flexible/0.3.2/??flexible_css.js,flexible.js"></script> -->
+    <script src="xinyusoft.js"></script>
+    <title>xycoding</title>
+    <% if (process.env.NODE_ENV === 'production') { %>
+      <% for (var index in htmlWebpackPlugin.files.css) { %>
+        <link rel="stylesheet" href="<%= htmlWebpackPlugin.files.css[index] + '?' + htmlWebpackPlugin.files.cssIntegrity[index] %>" />
+      <% } %>
+    <% } %>
+  </head>
+  <body>
+    <div id="app"></div>
+    <!-- built files will be auto injected -->
+    <% if (process.env.NODE_ENV === 'production') { %>
+      <% for (var index in htmlWebpackPlugin.files.js) { %>
+        <script src="<%= htmlWebpackPlugin.files.js[index] + '?' + htmlWebpackPlugin.files.jsIntegrity[index] %>" ></script>
+      <% } %>
+    <% } %>
+  </body>
+
+</html>
